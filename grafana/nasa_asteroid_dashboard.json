@@ -1,0 +1,889 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "NASA Near-Earth Object Risk Intelligence Dashboard — MADSC301 BI Final | Bhavesh Patil | EU Business School Munich",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": 1638899886440448,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 100,
+      "title": "Key Metrics",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "efpqo8i1kfrb4e"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#00B4D8",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#00B4D8"
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 1
+      },
+      "id": 1,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "efpqo8i1kfrb4e"
+          },
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) AS value FROM asteroids;",
+          "refId": "A"
+        }
+      ],
+      "title": "Total Asteroids Tracked",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "efpqo8i1kfrb4e"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#FF6B35",
+            "mode": "fixed"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#FF6B35"
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 1
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "efpqo8i1kfrb4e"
+          },
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) AS value FROM asteroids WHERE is_potentially_hazardous = true;",
+          "refId": "A"
+        }
+      ],
+      "title": "Potentially Hazardous",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "efpqo8i1kfrb4e"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#00C896",
+            "mode": "fixed"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#00C896"
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 8,
+        "y": 1
+      },
+      "id": 3,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "efpqo8i1kfrb4e"
+          },
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) AS value FROM close_approaches;",
+          "refId": "A"
+        }
+      ],
+      "title": "Total Close Approaches",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "efpqo8i1kfrb4e"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#A855F7",
+            "mode": "fixed"
+          },
+          "decimals": 1,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#00C896"
+              },
+              {
+                "color": "#FF6B35",
+                "value": 50
+              },
+              {
+                "color": "#FF0000",
+                "value": 75
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 12,
+        "y": 1
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "efpqo8i1kfrb4e"
+          },
+          "format": "table",
+          "rawSql": "SELECT ROUND(MAX(risk_score)::numeric, 1) AS value FROM close_approaches;",
+          "refId": "A"
+        }
+      ],
+      "title": "Max Risk Score (0-100)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "efpqo8i1kfrb4e"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#00B4D8",
+            "mode": "fixed"
+          },
+          "decimals": 1,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#00B4D8"
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 16,
+        "y": 1
+      },
+      "id": 5,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "efpqo8i1kfrb4e"
+          },
+          "format": "table",
+          "rawSql": "SELECT ROUND(MIN(miss_distance_lunar)::numeric, 2) AS value FROM close_approaches;",
+          "refId": "A"
+        }
+      ],
+      "title": "Closest Approach (Lunar Dist.)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "efpqo8i1kfrb4e"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#FF6B35",
+            "mode": "fixed"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#FF6B35"
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 20,
+        "y": 1
+      },
+      "id": 6,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "efpqo8i1kfrb4e"
+          },
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) AS value FROM asteroids WHERE is_sentry_object = true;",
+          "refId": "A"
+        }
+      ],
+      "title": "Sentry Watch Objects",
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 101,
+      "title": "Daily NEO Activity",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "efpqo8i1kfrb4e"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#00B4D8",
+            "mode": "fixed"
+          },
+          "custom": {
+            "fillOpacity": 15,
+            "lineWidth": 2,
+            "pointSize": 6,
+            "showPoints": "always",
+            "spanNulls": false
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "hazardous"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#FF6B35",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 10
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 16,
+        "x": 0,
+        "y": 6
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [
+            "sum",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "efpqo8i1kfrb4e"
+          },
+          "format": "time_series",
+          "rawSql": "SELECT\n  close_approach_date AS \"time\",\n  COUNT(*) AS total,\n  COUNT(*) FILTER (WHERE a.is_potentially_hazardous = true) AS hazardous\nFROM close_approaches ca\nJOIN asteroids a ON ca.asteroid_id = a.asteroid_id\nGROUP BY close_approach_date\nORDER BY close_approach_date;",
+          "refId": "A"
+        }
+      ],
+      "title": "Daily Near-Earth Object Count",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "efpqo8i1kfrb4e"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 6
+      },
+      "id": 11,
+      "options": {
+        "displayLabels": [
+          "percent",
+          "name"
+        ],
+        "legend": {
+          "displayMode": "table",
+          "placement": "bottom",
+          "values": [
+            "value",
+            "percent"
+          ]
+        },
+        "pieType": "donut",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "efpqo8i1kfrb4e"
+          },
+          "format": "table",
+          "rawSql": "SELECT\n  CASE WHEN is_potentially_hazardous THEN 'Potentially Hazardous' ELSE 'Non-Hazardous' END AS label,\n  COUNT(*) AS value\nFROM asteroids\nGROUP BY is_potentially_hazardous;",
+          "refId": "A"
+        }
+      ],
+      "title": "Hazard Classification",
+      "type": "piechart"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "id": 102,
+      "title": "Size & Risk Analysis",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "efpqo8i1kfrb4e"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#00B4D8",
+            "mode": "fixed"
+          },
+          "custom": {
+            "fillOpacity": 80
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 16
+      },
+      "id": 20,
+      "options": {
+        "barWidth": 0.7,
+        "groupWidth": 0.7,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "orientation": "horizontal",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "efpqo8i1kfrb4e"
+          },
+          "format": "table",
+          "rawSql": "SELECT\n  size_category AS \"Size Category\",\n  COUNT(*) AS count\nFROM asteroids\nWHERE size_category IS NOT NULL\nGROUP BY size_category\nORDER BY\n  CASE size_category\n    WHEN 'Micro (<50m)' THEN 1\n    WHEN 'Small (50–140m)' THEN 2\n    WHEN 'Medium (140–500m)' THEN 3\n    WHEN 'Large (500m–1km)' THEN 4\n    WHEN 'Giant (>1km)' THEN 5\n    ELSE 6\n  END;",
+          "refId": "A"
+        }
+      ],
+      "title": "Asteroid Size Distribution",
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "efpqo8i1kfrb4e"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#A855F7",
+            "mode": "fixed"
+          },
+          "custom": {
+            "fillOpacity": 80
+          },
+          "decimals": 1,
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 16
+      },
+      "id": 21,
+      "options": {
+        "barWidth": 0.7,
+        "groupWidth": 0.7,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "orientation": "horizontal",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "efpqo8i1kfrb4e"
+          },
+          "format": "table",
+          "rawSql": "SELECT\n  a.size_category AS \"Size Category\",\n  ROUND(AVG(ca.risk_score)::numeric, 1) AS \"Avg Risk Score\"\nFROM close_approaches ca\nJOIN asteroids a ON ca.asteroid_id = a.asteroid_id\nWHERE a.size_category IS NOT NULL\nGROUP BY a.size_category\nORDER BY AVG(ca.risk_score) DESC;",
+          "refId": "A"
+        }
+      ],
+      "title": "Average Risk Score by Size",
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "efpqo8i1kfrb4e"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "fillOpacity": 80
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 16
+      },
+      "id": 22,
+      "options": {
+        "barWidth": 0.7,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "orientation": "horizontal",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "efpqo8i1kfrb4e"
+          },
+          "format": "table",
+          "rawSql": "SELECT\n  size_category AS \"Size Category\",\n  COUNT(*) FILTER (WHERE is_potentially_hazardous = false) AS \"Non-Hazardous\",\n  COUNT(*) FILTER (WHERE is_potentially_hazardous = true) AS \"Hazardous\"\nFROM asteroids\nWHERE size_category IS NOT NULL\nGROUP BY size_category\nORDER BY\n  CASE size_category\n    WHEN 'Micro (<50m)' THEN 1\n    WHEN 'Small (50–140m)' THEN 2\n    WHEN 'Medium (140–500m)' THEN 3\n    WHEN 'Large (500m–1km)' THEN 4\n    WHEN 'Giant (>1km)' THEN 5\n    ELSE 6\n  END;",
+          "refId": "A"
+        }
+      ],
+      "title": "NEO Count by Size & Hazard",
+      "type": "barchart"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 24
+      },
+      "id": 103,
+      "title": "High-Risk Alerts & Closest Approaches",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "efpqo8i1kfrb4e"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "#FF6B35",
+                "value": 50
+              },
+              {
+                "color": "red",
+                "value": 75
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "risk_score"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "gradient",
+                  "type": "gauge"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "#FF6B35",
+                      "value": 50
+                    },
+                    {
+                      "color": "red",
+                      "value": 75
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "is_potentially_hazardous"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "false": {
+                        "color": "#00C896",
+                        "text": "Safe"
+                      },
+                      "true": {
+                        "color": "#FF6B35",
+                        "text": "HAZARDOUS"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 25
+      },
+      "id": 30,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "risk_score"
+          }
+        ]
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "efpqo8i1kfrb4e"
+          },
+          "format": "table",
+          "rawSql": "SELECT\n  a.name,\n  ca.close_approach_date,\n  a.size_category,\n  ROUND(ca.miss_distance_lunar::numeric, 2) AS miss_distance_lunar,\n  ROUND(ca.miss_distance_km::numeric, 0) AS miss_distance_km,\n  ROUND(ca.velocity_kph::numeric, 0) AS velocity_kph,\n  ROUND(ca.risk_score::numeric, 1) AS risk_score,\n  a.is_potentially_hazardous\nFROM close_approaches ca\nJOIN asteroids a ON ca.asteroid_id = a.asteroid_id\nORDER BY ca.risk_score DESC\nLIMIT 20;",
+          "refId": "A"
+        }
+      ],
+      "title": "Top 20 Highest Risk Approaches",
+      "type": "table"
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 42,
+  "tags": [
+    "nasa",
+    "asteroids",
+    "bi",
+    "madsc301"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-30d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "NASA Asteroid Risk Intelligence",
+  "uid": "nasa-asteroid-risk-bhavesh",
+  "version": 2,
+  "weekStart": ""
+}
